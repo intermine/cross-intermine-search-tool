@@ -538,7 +538,7 @@
               <v-alert v-if="this.protocol === 'https:'" :value="true" type="warning">
                 You're currently viewing the HTTPS website. Due to security limitations, we are unable to show results from HTTP-only InterMines. You may be able to see more results if you reload this site via HTTP - [<a style="color: inherit;" :href="`http://${this.host}`">{{ `http://${this.host}` }}</a>].
               </v-alert>
-              <v-alert v-if="this.failedSearchMines.length != 0" :value="true" type="error">
+              <v-alert v-if="this.failedSearchMines.length != 0" :value="true" id="error" type="error">
                 Something went wrong in the following mine(s): <span v-for="errorMine in this.failedSearchMines" :key="errorMine"> {{ errorMine }} /</span>
               </v-alert>
               <v-alert v-if="this.emptyResultMines.length != 0" :value="true" color="indigo lighten-4">
@@ -1075,6 +1075,10 @@
     #app_title {
       width: 0em;
     }
+  }
+  
+  #error {
+     background-color: #FF9494 !important;
   }
 
   .example {
